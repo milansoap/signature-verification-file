@@ -1,18 +1,28 @@
 <div class="container mt-5">
-    <h1 class="text-center"> VERIFICATION </h1>
-    <div class="d-grid gap-3">
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-default">SIGNATURE</span>
-            </div>
-            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-        </div>
-        <div>
-            <input class="form-control form-control-lg" id="formFileLg" type="file">
-        </div>
-        <button type="button" class="btn btn-primary btn-lg btn-block">VERIFICATE FILE</button>
+  <h1 class="text-center"> VERIFICATION </h1>
+  <div class="d-grid gap-3">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">HASHED CODE SIGNATURE</span>
+      </div>
+      <input [(ngModel)]="signature" type="text" class="form-control" aria-label="Default"
+        aria-describedby="inputGroup-sizing-default">
     </div>
-    <div class="switcher">
-        <app-switcher></app-switcher>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">PUBLIC KEY</span>
+      </div>
+      <input [(ngModel)]="publicKey" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
     </div>
+    <div>
+      <input (change)="file = $event.target.files[0]" class="form-control form-control-lg" id="formFileLg" type="file">
+    </div>
+    <button (click)="verifySignature()" type="button" class="btn btn-primary btn-lg btn-block">VERIFICATE FILE</button>
+  </div>
+  <div *ngIf="isSignatureValid !== null" class="alert" [ngClass]="isSignatureValid ? 'alert-success mt-5' : 'alert-danger mt-5'">
+    {{ isSignatureValid ? 'The signature is valid.' : 'The signature is not valid.' }}
+  </div>
+  <div class="switcher">
+    <app-switcher></app-switcher>
+  </div>
 </div>

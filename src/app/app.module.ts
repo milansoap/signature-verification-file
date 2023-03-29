@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SignatureComponent } from './components/signature/signature.component';
 import { VerificationComponent } from './components/verification/verification.component';
 import { SwitcherComponent } from './components/switcher/switcher.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SwitcherComponent } from './components/switcher/switcher.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

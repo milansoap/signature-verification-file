@@ -1,18 +1,22 @@
 <div class="container mt-5">
     <h1 class="text-center"> SIGNATURE </h1>
     <div class="d-grid gap-3">
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-default">SIGNATURE</span>
-            </div>
-            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">PRIVATE KEY</span>
         </div>
-        <div>
-            <input class="form-control form-control-lg" id="formFileLg" type="file">
-        </div>
-        <button type="button" class="btn btn-primary btn-lg btn-block">APPLY SIGNATURE</button>
+        <input [(ngModel)]="privateKey" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div>
+        <input (change)="onFileChange($event)" class="form-control form-control-lg" id="formFileLg" type="file">
+      </div>
+      <button (click)="applySignature()" type="button" class="btn btn-primary btn-lg btn-block">APPLY SIGNATURE</button>
     </div>
     <div class="switcher">
-        <app-switcher></app-switcher>
+      <app-switcher></app-switcher>
     </div>
+  </div>
+<div class="container">
+  <h1> {{feedbackVariable}}</h1>
 </div>
+  
